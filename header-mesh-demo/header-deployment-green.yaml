@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: py-header
+    version: green
+  name: py-header-green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: py-header
+      version: green
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      creationTimestamp: null
+      labels:
+        app: py-header
+        version: green
+    spec:
+      containers:
+      - image: surote/py-http-echo:04b84150ce36a4b9fae9d99d8c52362f37b8497c
+        name: py-http-echo
+        env:
+        - name: BACKGROUND_COLOR
+          value: "green"
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: svc-py-header
+  name: svc-py-header
+spec:
+  ports:
+  - name: http
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: py-header
+  type: ClusterIP
+status:
+  loadBalancer: {}

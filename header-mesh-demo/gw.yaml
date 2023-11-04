@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: header-sds-gw
+  namespace: istio
+spec:
+  # The selector matches the ingress gateway pod labels.
+  # If you installed Istio using Helm following the standard documentation, this would be "istio=ingress"
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPs
+    tls:
+      mode: SIMPLE
+      credentialName: router-certs-default
+    hosts:
+    - "demo-py-header.apps.x74v2.dynamic.opentlc.com"
+    - "demo-py-call.apps.x74v2.dynamic.opentlc.com"

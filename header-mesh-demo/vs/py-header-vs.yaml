@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: vs-header-bluegreen
+spec:
+  gateways:
+  - istio/header-sds-gw
+  - mesh
+  hosts:
+  - "demo-py-header.apps.x74v2.dynamic.opentlc.com"
+  - "svc-py-header"
+  http:
+  - route:
+    - destination:
+        host: svc-py-header
+        subset: blue
+      weight: 0
+    - destination:
+        host: svc-py-header
+        subset: green
+      weight: 100
+
