@@ -14,7 +14,7 @@ spec:
     - uri:
         prefix: /testbluex123
     route:
-      - destination:
+    - destination:
         host: svc-py-header
         subset: blue
   - route:
