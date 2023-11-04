@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: py-http-call
+  name: py-http-call
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: py-http-call
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      creationTimestamp: null
+      labels:
+        app: py-http-call
+    spec:
+      containers:
+      - image: quay.io/rh_ee_swongpai/py-http-call:9cae5a35b6343861736f0f1143ce61d29a128219
+        name: py-http-call
+        env:
+        - name: api_endpoint
+          value: "svc-py-header:8080/api/v1"
+        - name: BACKGROUND_COLOR
+          value: "orange"
+        resources: {}
+status: {}

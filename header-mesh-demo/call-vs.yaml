@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: vs-py-http-call
+spec:
+  gateways:
+  - istio/header-sds-gw
+  hosts:
+  - "demo-py-call.apps.x74v2.dynamic.opentlc.com"
+  - "svc-py-http-call"
+  http:
+  - route:
+    - destination:
+        host: svc-py-http-call
