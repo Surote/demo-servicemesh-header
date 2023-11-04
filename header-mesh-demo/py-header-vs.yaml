@@ -14,9 +14,9 @@ spec:
     - destination:
         host: svc-py-header
         subset: blue
-      weight: 0
+      weight: 70
     - destination:
         host: svc-py-header
         subset: green
-      weight: 100
+      weight: 30
 
