@@ -12,7 +12,7 @@ spec:
   http:
   - match:
     - uri:
-        exact: /testbluex123
+        prefix: /testbluex123
     route:
     - destination:
         host: svc-py-header
