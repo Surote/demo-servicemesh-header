@@ -10,6 +10,13 @@ spec:
   - "demo-py-header.apps.x74v2.dynamic.opentlc.com"
   - "svc-py-header"
   http:
+  - match:
+    - uri:
+        exact: /testbluex123
+    route:
+    - destination:
+        host: svc-py-header
+        subset: blue
   - route:
     - destination:
         host: svc-py-header
