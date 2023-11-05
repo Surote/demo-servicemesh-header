@@ -12,13 +12,22 @@ spec:
   http:
   - match:
     - uri:
-        exact: /testbluex123
+        exact: /testbluebydev
     rewrite:
       uri: /
     route:
     - destination:
         host: svc-py-header
         subset: blue
+  - match:
+    - uri:
+        exact: /testgreenbydev
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        host: svc-py-header
+        subset: green
   - route:
     - destination:
         host: svc-py-header
