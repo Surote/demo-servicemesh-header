@@ -23,7 +23,7 @@ spec:
         version: blue
     spec:
       containers:
-      - image: surote/py-http-echo:04b84150ce36a4b9fae9d99d8c52362f37b8497c
+      - image: quay.io/rh_ee_swongpai/py-http-header:3b59f777dda2bbe13029806eb9ed5e30ad4ce4a2
         name: py-http-echo
         env:
         - name: BACKGROUND_COLOR
