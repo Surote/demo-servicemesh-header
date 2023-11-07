@@ -4,6 +4,12 @@ metadata:
   name: dt-py-header-bluegreen
 spec:
   host: svc-py-header
+  trafficPolicy:
+      loadBalancer:
+        consistentHash:
+          httpCookie: 
+            name: ISTIOID
+            ttl: 60s
   subsets:
   - name: blue
     labels:
