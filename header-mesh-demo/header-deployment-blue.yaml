@@ -23,7 +23,7 @@ spec:
         version: blue
     spec:
       containers:
-      - image: quay.io/rh_ee_swongpai/py-http-header:cb7a8a44d644a587a3a94c98ad373524a4893877
+      - image: quay.io/rh_ee_swongpai/py-http-header:1b98030d1a76a8543a4c5d4c4b68fc5d9d965015
         name: py-http-echo
         env:
         - name: BACKGROUND_COLOR
