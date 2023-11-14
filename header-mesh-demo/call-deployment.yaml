@@ -20,7 +20,7 @@ spec:
         app: py-http-call
     spec:
       containers:
-      - image: quay.io/rh_ee_swongpai/py-http-call:9cae5a35b6343861736f0f1143ce61d29a128219
+      - image: quay.io/rh_ee_swongpai/py-http-call:1c91e02c69498a6e1ec71c06df884d44864ebe24
         name: py-http-call
         env:
         - name: api_endpoint
